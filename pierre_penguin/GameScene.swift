@@ -32,5 +32,27 @@ class GameScene: SKScene {
         // on any type instance, exactly equal to the instance itself
         // So in this case, it refers to the GameScene instance
         self.addChild(mySprite)
+        
+        // Create a new constant for our action instance
+        // Use the move action to provide a goal position for a node
+        // SpriteKit will tween to the new position over the course of the
+        // duration, in this case 5 seconds
+        let demoAction1 = SKAction.move(to: CGPoint(x: 300, y: 150), duration: 5)
+        
+        // Scale up to 4x initial scale
+        let demoAction2 = SKAction.scale(to: 4, duration: 5)
+        
+        // Rotate 5 radians
+        let demoAction3 = SKAction.rotate(byAngle: 5, duration: 5)
+        
+        // group actions
+        // let actionGroup = SKAction.group([demoAction1, demoAction2, demoAction3])
+        
+        // group sequence
+        let actionSequence = SKAction.sequence([demoAction1, demoAction2, demoAction3])
+        
+        // Excute the sequence!
+        // mySprite.run(actionGroup)
+        mySprite.run(actionSequence)
     }
 }
