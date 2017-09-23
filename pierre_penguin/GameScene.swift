@@ -12,27 +12,19 @@ import GameplayKit
 class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
-        // Make the scene position from its lower left
-        // corner, regardless of any other settings:
+        // Position from the lover left corner
         self.anchorPoint = .zero
+        // set the scene's background to a nice sky blue
+        // NOTE: UIColor uses a scale from 0 to 1 for its color
+        self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1.0)
         
-        // Instantiate a constant, mySprite, instance of SKSpriteNode
-        let mySprite = SKSpriteNode(color: .blue, size: CGSize(width: 50, height: 50))
-        
-        // Assign our sprite a postion
-        mySprite.position = CGPoint(x: 150, y: 150)
-        
-        // Add our sprite node into the node tree.
-        self.addChild(mySprite)
-        
-        // Scale up to 4x initial scale
-        let demoAction1 = SKAction.scale(to: 4, duration: 5)
-        // Rotate 5 radians
-        let demoAction2 = SKAction.rotate(byAngle: 5, duration: 5)
-        
-        // Group the actions
-        let actionSequence = SKAction.sequence([demoAction1, demoAction2])
-        // Execute the group!
-        mySprite.run(actionSequence)
+        // create our bee sprite node
+        let bee = SKSpriteNode(imageNamed: "bee")
+        // size our bee node
+        bee.size = CGSize(width: 28, height: 24)
+        // position our bee node
+        bee.position = CGPoint(x: 250, y: 250)
+        // attach our bee to the scene's node tree
+        self.addChild(bee)
     }
 }
