@@ -10,12 +10,8 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    // Create a constant cam as a SKCamerNode:
     let cam = SKCameraNode()
     let ground = Ground()
-    // Create our bee node as a property of GameScene so we can
-    // access it throughout the class
-    // (Make sure to remove the old bee declaration below)
     let player = Player()
     
     override func didMove(to view: SKView) {
@@ -24,6 +20,14 @@ class GameScene: SKScene {
         
         // Assign the camera to the scene
         self.camera = cam
+        
+        // Spawn test bees:
+        let bee2 = Bee()
+        bee2.position = CGPoint(x: 325, y: 325)
+        self.addChild(bee2)
+        let bee3 = Bee()
+        bee3.position = CGPoint(x: 200, y: 325)
+        self.addChild(bee3)
 
         // Position ground based on screen size
         // Position X: Negative one screen width
@@ -37,9 +41,8 @@ class GameScene: SKScene {
         // Add ground node to scene:
         self.addChild(ground)
         
-        // Position the player:
+        // Add player to scene:
         player.position = CGPoint(x: 150, y: 250)
-        // Add player node to scene
         self.addChild(player)
     }
     

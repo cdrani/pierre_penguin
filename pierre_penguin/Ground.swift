@@ -38,6 +38,12 @@ class Ground: SKSpriteNode, GameSprite {
             
             tileCount += 1
         }
+        
+        // Draw edge physics body along top of ground node
+        // NOTE: physics body positions are relative to their nodes
+        let pointTopLeft = CGPoint(x: 0, y: 0)
+        let pointTopRight = CGPoint(x: size.width, y: 0)
+        self.physicsBody = SKPhysicsBody(edgeFrom: pointTopLeft, to: pointTopRight)
     }
     
     func onTap() {
