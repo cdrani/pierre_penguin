@@ -8,9 +8,11 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
 
 class GameScene: SKScene {
     let cam = SKCameraNode()
+    let motionManager = CMMotionManager()
     let ground = Ground()
     let player = Player()
     
@@ -28,7 +30,7 @@ class GameScene: SKScene {
         let bee3 = Bee()
         bee3.position = CGPoint(x: 200, y: 325)
         self.addChild(bee3)
-    
+        
         // Position ground based on screen size
         // Position X: Negative one screen width
         // Postion Y: 150 above the bottom ( top left anchor point)
@@ -44,6 +46,8 @@ class GameScene: SKScene {
         // Add player to scene:
         player.position = CGPoint(x: 150, y: 250)
         self.addChild(player)
+        
+        self.motionManager.startAccelerometerUpdates()
     }
     
     override func didSimulatePhysics() {
@@ -53,5 +57,36 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         player.update()
+        
+        // Unwrap the accelerometer data optional:
+        if let accelData = self.motionManager.accelerometerData {
+            var forceAmount: CGFloat
+            var movement = CGVector()
+            
+            // Get current orientation of the device
+            switch UIApplication.shared.statusBarOrientation {
+            case .landscapeLeft:
+                forceAmount = 20000
+            case .landscapeRight:
+                forceAmount = -20000
+            default:
+                forceAmount = 0
+            }
+            
+            // NOTE: CM values relative to portrait view
+            // Landscape views --> y-values for x-axis
+            
+            // device tilt >= 15% towards vertical
+            if accelData.acceleration.y > 0.15 {
+                movement.dx = forceAmount
+            }
+            else if accelData.acceleration.y < -0.15 {
+                movement.dx = -forceAmount
+            }
+            
+            // Apply force to player:
+            player.physicsBody?.applyForce(movement)
+            
+        }
     }
 }
