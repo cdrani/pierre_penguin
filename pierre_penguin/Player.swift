@@ -105,6 +105,18 @@ class Player: SKSpriteNode, GameSprite {
         }
     }
     
+    func startFlapping() {
+        self.removeAction(forKey: "soarAnimation")
+        self.run(flyAnimation, withKey: "flapAnimation")
+        self.flapping = true
+    }
+    
+    func stopFlapping() {
+        self.removeAction(forKey: "flapAnimation")
+        self.run(soarAnimation, withKey: "soarAnimation")
+        self.flapping = false
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
