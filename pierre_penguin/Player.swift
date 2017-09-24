@@ -13,6 +13,13 @@ class Player: SKSpriteNode, GameSprite {
     var initialSize: CGSize = CGSize(width: 64, height: 64)
     var textureAtlas: SKTextureAtlas = SKTextureAtlas(named: "Pierre")
     
+    // Piere in Motion
+    var flapping = false
+    // Max upward force
+    let maxFlappingForce: CGFloat = 57000
+    // slow down when too high
+    let maxHeight: CGFloat = 1000
+    
     // Fly up and down animation
     var flyAnimation = SKAction()
     var soarAnimation = SKAction()
@@ -21,8 +28,8 @@ class Player: SKSpriteNode, GameSprite {
         super.init(texture: nil, color: .clear, size: initialSize)
         
         createAnimations()
-        // "flapAnimation" key to reference action and action removal
-        self.run(flyAnimation, withKey: "flapAnimation")
+        // "soarAnimation" key to reference action and action removal
+        self.run(soarAnimation, withKey: "soarAnimation")
         
         // Create physics body based on third frame of Pierre's animation
         let bodyTexture = textureAtlas.textureNamed("pierre-flying-3")
@@ -74,7 +81,29 @@ class Player: SKSpriteNode, GameSprite {
         
     }
     
-    func update() {}
+    func update() {
+        // if flapping, apply new force to push Pierre higher:
+        if self.flapping {
+            var forceToApply = maxFlappingForce
+            
+            // Apply less force if Pierre above position 600
+            if position.y > 600 {
+                // higher Pierre is --> more force removed
+                let percentageOfMaxHeight = position.y / maxHeight
+                let flappingForceSubtraction = percentageOfMaxHeight * maxFlappingForce
+                forceToApply -= flappingForceSubtraction
+            }
+            
+            // Apply final force
+            self.physicsBody?.applyForce(CGVector(dx: 0, dy: forceToApply))
+        }
+        
+        // Limit Pierre's top speed at ascension to prevent getting
+        // enough momentum to climb past maxHeight
+        if self.physicsBody!.velocity.dy > 300 {
+            self.physicsBody!.velocity.dy = 300
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
