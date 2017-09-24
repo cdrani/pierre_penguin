@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C1742C11F77A6E000D681A4 /* GameSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1742C01F77A6E000D681A4 /* GameSprite.swift */; };
 		1C1742C31F77A7AD00D681A4 /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1742C21F77A7AD00D681A4 /* Bee.swift */; };
+		1C1742C51F77ACE800D681A4 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1742C41F77ACE800D681A4 /* Ground.swift */; };
 		1C7A62001F7602F500930B5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A61FF1F7602F500930B5E /* AppDelegate.swift */; };
 		1C7A62021F7602F500930B5E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A62011F7602F500930B5E /* GameScene.sks */; };
 		1C7A62041F7602F500930B5E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A62031F7602F500930B5E /* Actions.sks */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		1C1742C01F77A6E000D681A4 /* GameSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSprite.swift; sourceTree = "<group>"; };
 		1C1742C21F77A7AD00D681A4 /* Bee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
+		1C1742C41F77ACE800D681A4 /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		1C7A61FC1F7602F500930B5E /* pierre_penguin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pierre_penguin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7A61FF1F7602F500930B5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C7A62011F7602F500930B5E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				1C7A62111F7602F500930B5E /* Info.plist */,
 				1C1742C01F77A6E000D681A4 /* GameSprite.swift */,
 				1C1742C21F77A7AD00D681A4 /* Bee.swift */,
+				1C1742C41F77ACE800D681A4 /* Ground.swift */,
 			);
 			path = pierre_penguin;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C1742C51F77ACE800D681A4 /* Ground.swift in Sources */,
 				1C1742C31F77A7AD00D681A4 /* Bee.swift in Sources */,
 				1C1742C11F77A6E000D681A4 /* GameSprite.swift in Sources */,
 				1C7A62061F7602F500930B5E /* GameScene.swift in Sources */,

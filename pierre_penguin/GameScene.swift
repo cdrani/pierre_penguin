@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
     // Create a constant cam as a SKCamerNode:
     let cam = SKCameraNode()
+    let ground = Ground()
     // Create our bee node as a property of GameScene so we can
     // access it throughout the class
     // (Make sure to remove the old bee declaration below)
@@ -26,6 +27,18 @@ class GameScene: SKScene {
         
         // Call the new bee function
         self.addTheFlyingBee()
+        
+        // Position ground based on screen size
+        // Position X: Negative one screen width
+        // Postion Y: 150 above the bottom ( top left anchor point)
+        ground.position = CGPoint(x: -self.size.width * 2, y: 150)
+        // Set ground width to 3x width of scene
+        // height can be 0, child nodes will create height
+        ground.size = CGSize(width: self.size.width * 6, height: 0)
+        // Run ground's createChildren func to build child texture tiles
+        ground.createChildren()
+        // Add ground node to scene:
+        self.addChild(ground)
     }
     
     override func didSimulatePhysics() {
