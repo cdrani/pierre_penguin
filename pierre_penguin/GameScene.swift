@@ -44,6 +44,9 @@ class GameScene: SKScene {
         // Add player to scene:
         player.position = CGPoint(x: 150, y: 250)
         self.addChild(player)
+        
+        // Set gravity
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: -5)
     }
     
     override func didSimulatePhysics() {
@@ -51,6 +54,7 @@ class GameScene: SKScene {
         self.camera!.position = player.position
     }
     
+    // finger on screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             // Locate the touch area:
@@ -63,6 +67,17 @@ class GameScene: SKScene {
                 gameSprite.onTap()
             }
         }
+        player.startFlapping()
+    }
+    
+    // finger lifted from screen
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        player.stopFlapping()
+    }
+    
+    // stop flapping when iOS interrupts
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        player.stopFlapping()
     }
     
     override func update(_ currentTime: TimeInterval) {
