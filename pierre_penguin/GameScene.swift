@@ -28,6 +28,9 @@ class GameScene: SKScene {
         let bee3 = Bee()
         bee3.position = CGPoint(x: 200, y: 325)
         self.addChild(bee3)
+        
+        bee2.physicsBody?.mass = 0.2
+        bee2.physicsBody?.applyImpulse(CGVector(dx: -25, dy: 0))
 
         // Position ground based on screen size
         // Position X: Negative one screen width
