@@ -28,14 +28,11 @@ class GameScene: SKScene {
         let bee3 = Bee()
         bee3.position = CGPoint(x: 200, y: 325)
         self.addChild(bee3)
-        
-        bee2.physicsBody?.mass = 0.2
-        bee2.physicsBody?.applyImpulse(CGVector(dx: -25, dy: 0))
-
+    
         // Position ground based on screen size
         // Position X: Negative one screen width
         // Postion Y: 150 above the bottom ( top left anchor point)
-        ground.position = CGPoint(x: -self.size.width * 2, y: 150)
+        ground.position = CGPoint(x: -self.size.width * 2, y: 30)
         // Set ground width to 3x width of scene
         // height can be 0, child nodes will create height
         ground.size = CGSize(width: self.size.width * 6, height: 0)
@@ -52,5 +49,9 @@ class GameScene: SKScene {
     override func didSimulatePhysics() {
         // Keep the camera centered on the player
         self.camera!.position = player.position
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        player.update()
     }
 }
