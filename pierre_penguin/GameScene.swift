@@ -51,6 +51,20 @@ class GameScene: SKScene {
         self.camera!.position = player.position
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            // Locate the touch area:
+            let location = touch.location(in: self)
+            // Locate node at the location:
+            let nodeTouched = atPoint(location)
+            // Attempt to downcast the node to the GameSprite protocol:
+            if let gameSprite = nodeTouched as? GameSprite {
+                // if node adhered to protocol
+                gameSprite.onTap()
+            }
+        }
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         player.update()
     }
