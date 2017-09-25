@@ -12,7 +12,9 @@ import SpriteKit
 class EncounterManager {
     // Encounter file names:
     let encounterNames: [String] = [
-        "EncounterA"
+        "EncounterA",
+        "EncounterB",
+        "EncounterC"
     ]
     
     // Each encounter is an SKNode:

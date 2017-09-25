@@ -26,6 +26,8 @@
 		1CCD822D1F7929E0002BFA89 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD822C1F7929E0002BFA89 /* Coin.swift */; };
 		1CCD82301F79693E002BFA89 /* EncounterA.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD822F1F79693E002BFA89 /* EncounterA.sks */; };
 		1CCD82321F796C8C002BFA89 /* EncounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD82311F796C8C002BFA89 /* EncounterManager.swift */; };
+		1CCD82341F797368002BFA89 /* EncounterB.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD82331F797368002BFA89 /* EncounterB.sks */; };
+		1CCD82361F79737E002BFA89 /* EncounterC.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD82351F79737E002BFA89 /* EncounterC.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		1CCD822C1F7929E0002BFA89 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		1CCD822F1F79693E002BFA89 /* EncounterA.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterA.sks; sourceTree = "<group>"; };
 		1CCD82311F796C8C002BFA89 /* EncounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterManager.swift; sourceTree = "<group>"; };
+		1CCD82331F797368002BFA89 /* EncounterB.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterB.sks; sourceTree = "<group>"; };
+		1CCD82351F79737E002BFA89 /* EncounterC.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterC.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				1CCD822F1F79693E002BFA89 /* EncounterA.sks */,
+				1CCD82331F797368002BFA89 /* EncounterB.sks */,
+				1CCD82351F79737E002BFA89 /* EncounterC.sks */,
 			);
 			path = Encounters;
 			sourceTree = "<group>";
@@ -173,8 +179,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCD82341F797368002BFA89 /* EncounterB.sks in Resources */,
 				1C7A620B1F7602F500930B5E /* Main.storyboard in Resources */,
 				1C7A62021F7602F500930B5E /* GameScene.sks in Resources */,
+				1CCD82361F79737E002BFA89 /* EncounterC.sks in Resources */,
 				1C7A620D1F7602F500930B5E /* Assets.xcassets in Resources */,
 				1CCD82301F79693E002BFA89 /* EncounterA.sks in Resources */,
 				1C7A62101F7602F500930B5E /* LaunchScreen.storyboard in Resources */,
