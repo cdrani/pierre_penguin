@@ -13,6 +13,7 @@ class GameScene: SKScene {
     let cam = SKCameraNode()
     let ground = Ground()
     let player = Player()
+    var screenCenterY = CGFloat()
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -47,11 +48,28 @@ class GameScene: SKScene {
         
         // Set gravity
         self.physicsWorld.gravity = CGVector(dx: 0, dy: -5)
+        
+        // Vertical center of the screen:
+        screenCenterY = self.size.height / 2
     }
     
     override func didSimulatePhysics() {
-        // Keep the camera centered on the player
-        self.camera!.position = player.position
+        // Keep the camera locked at mid screen by default:
+        var cameraYPos = screenCenterY
+        cam.yScale = 1
+        cam.xScale = 1
+        
+        // Follow player up if on upper half of screen:
+        if (player.position.y > screenCenterY) {
+            cameraYPos = player.position.y
+            // Scale out the camera as player goes higher:
+            let percentOfMaxHeight = (player.position.y - screenCenterY) / (player.maxHeight - screenCenterY)
+            let newScale = 1 + percentOfMaxHeight
+            cam.yScale = newScale
+            cam.xScale = newScale
+        }
+        // Move camera for above adjustments:
+        self.camera!.position = CGPoint(x: player.position.x, y: cameraYPos)
     }
     
     // finger on screen
