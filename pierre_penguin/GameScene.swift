@@ -25,47 +25,6 @@ class GameScene: SKScene {
         // Assign the camera to the scene
         self.camera = cam
         
-        // Spawn test bees:
-        let bee2 = Bee()
-        bee2.position = CGPoint(x: 325, y: 325)
-        self.addChild(bee2)
-        let bee3 = Bee()
-        bee3.position = CGPoint(x: 200, y: 325)
-        self.addChild(bee3)
-        
-        // Spawn:
-        
-        // Bat:
-        let bat = Bat()
-        bat.position = CGPoint(x: 400, y: 200)
-        self.addChild(bat)
-        
-        // Blade:
-        let blade = Blade()
-        blade.position = CGPoint(x: 300, y: 76)
-        self.addChild(blade)
-        
-        // MadFly:
-        let madFly = MadFly()
-        madFly.position = CGPoint(x: 50, y: 50)
-        self.addChild(madFly)
-        
-        // Bronze Coin:
-        let bronzeCoin = Coin()
-        bronzeCoin.position = CGPoint(x: -50, y: 250)
-        self.addChild(bronzeCoin)
-        
-        // Gold Coin:
-        let goldCoin = Coin()
-        goldCoin.position = CGPoint(x: 25, y: 250)
-        goldCoin.turnToGold()
-        self.addChild(goldCoin)
-        
-        // Star:
-        let star = Star()
-        star.position = CGPoint(x: 250, y: 250)
-        self.addChild(star)
-    
         // Position ground based on screen size
         // Position X: Negative one screen width
         // Postion Y: 150 above the bottom ( top left anchor point)
