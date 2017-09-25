@@ -20,6 +20,7 @@ class Star: SKSpriteNode, GameSprite {
         
         // Assign physic body:
         self.physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
+        self.physicsBody?.affectedByGravity = false
         
         // star animation:
         createAnimations()
@@ -42,7 +43,7 @@ class Star: SKSpriteNode, GameSprite {
         ])
         
         // Combine pulses in sequence group:
-        let pulseSequence = SKAction.sequence([pulseInGroup, pulseOutGroup])
+        let pulseSequence = SKAction.sequence([pulseOutGroup, pulseInGroup])
         pulseAnimation = SKAction.repeatForever(pulseSequence)
     }
     

@@ -78,24 +78,24 @@
 		1C7A61FE1F7602F500930B5E /* pierre_penguin */ = {
 			isa = PBXGroup;
 			children = (
-				1C7A61FF1F7602F500930B5E /* AppDelegate.swift */,
-				1C7A62011F7602F500930B5E /* GameScene.sks */,
-				1C7A62031F7602F500930B5E /* Actions.sks */,
-				1C7A62051F7602F500930B5E /* GameScene.swift */,
-				1C7A62071F7602F500930B5E /* GameViewController.swift */,
-				1C7A62091F7602F500930B5E /* Main.storyboard */,
-				1C7A620C1F7602F500930B5E /* Assets.xcassets */,
-				1C7A620E1F7602F500930B5E /* LaunchScreen.storyboard */,
 				1C7A62111F7602F500930B5E /* Info.plist */,
-				1C1742C01F77A6E000D681A4 /* GameSprite.swift */,
-				1C1742C21F77A7AD00D681A4 /* Bee.swift */,
-				1C1742C41F77ACE800D681A4 /* Ground.swift */,
-				1C1742C61F77B3D600D681A4 /* Player.swift */,
-				1CCD82241F791E13002BFA89 /* Star.swift */,
-				1CCD82261F7921DC002BFA89 /* MadFly.swift */,
+				1C7A62031F7602F500930B5E /* Actions.sks */,
+				1C7A62011F7602F500930B5E /* GameScene.sks */,
+				1C7A61FF1F7602F500930B5E /* AppDelegate.swift */,
 				1CCD82281F7924C3002BFA89 /* Bat.swift */,
+				1C1742C21F77A7AD00D681A4 /* Bee.swift */,
 				1CCD822A1F792706002BFA89 /* Blade.swift */,
 				1CCD822C1F7929E0002BFA89 /* Coin.swift */,
+				1C7A62051F7602F500930B5E /* GameScene.swift */,
+				1C1742C01F77A6E000D681A4 /* GameSprite.swift */,
+				1C7A62071F7602F500930B5E /* GameViewController.swift */,
+				1C1742C41F77ACE800D681A4 /* Ground.swift */,
+				1CCD82261F7921DC002BFA89 /* MadFly.swift */,
+				1C1742C61F77B3D600D681A4 /* Player.swift */,
+				1CCD82241F791E13002BFA89 /* Star.swift */,
+				1C7A620C1F7602F500930B5E /* Assets.xcassets */,
+				1C7A620E1F7602F500930B5E /* LaunchScreen.storyboard */,
+				1C7A62091F7602F500930B5E /* Main.storyboard */,
 			);
 			path = pierre_penguin;
 			sourceTree = "<group>";
