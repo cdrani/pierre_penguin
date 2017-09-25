@@ -42,8 +42,14 @@ class EncounterManager {
                     // add to encounter node:
                     encounterNode.addChild(copyOfNode)
                     
-                    // Save initial sprite positions for this encounte:
+                    // Save initial sprite positions for this encounter:
                     saveSpritePositions(node: encounterNode)
+                    
+                    // Turn golden coins gold:
+                    encounterNode.enumerateChildNodes(withName: "gold") {
+                        (node: SKNode, stop: UnsafeMutablePointer) in
+                        (node as? Coin)?.turnToGold()
+                    }
                 }
             }
             

@@ -21,6 +21,8 @@ class GameScene: SKScene {
     let encounterManager = EncounterManager()
     var nextEncounterSpawnPosition = CGFloat(150)
     
+    let powerUpStar = Star()
+    
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
         self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1.0)
@@ -52,6 +54,10 @@ class GameScene: SKScene {
         
         // Add encounter nodes as child of GameScene node
         encounterManager.addEncountersToScene(gameScene: self)
+        
+        // PowerUp Star
+        self.addChild(powerUpStar)
+        powerUpStar.position = CGPoint(x: -2000, y: -2000)
     }
     
     override func didSimulatePhysics() {
@@ -82,6 +88,19 @@ class GameScene: SKScene {
         if player.position.x > nextEncounterSpawnPosition {
             encounterManager.placeNextEncounter(currentXPos: nextEncounterSpawnPosition)
             nextEncounterSpawnPosition += 1200
+            
+            // Each encounter has 10% chance to spawn a star:
+            let starRoll = Int(arc4random_uniform(10))
+            if starRoll == 0 {
+                // Only move star if offscreen:
+                if abs(player.position.x - powerUpStar.position.x) > 1200 {
+                    let randomYPos = 50 + CGFloat(arc4random_uniform(400))
+                    powerUpStar.position = CGPoint(x: nextEncounterSpawnPosition, y: randomYPos)
+                    // Remove previous velocity and spin:
+                    powerUpStar.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                    powerUpStar.physicsBody?.angularVelocity = 0
+                }
+            }
         }
     }
     
