@@ -19,6 +19,7 @@ class GameScene: SKScene {
     var playerProgress = CGFloat()
     
     let encounterManager = EncounterManager()
+    var nextEncounterSpawnPosition = CGFloat(150)
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -76,6 +77,12 @@ class GameScene: SKScene {
         
         // Check if ground should jump forward:
         ground.checkForReposition(playerProgress: playerProgress)
+        
+        // Check if new encounter should be set:
+        if player.position.x > nextEncounterSpawnPosition {
+            encounterManager.placeNextEncounter(currentXPos: nextEncounterSpawnPosition)
+            nextEncounterSpawnPosition += 1200
+        }
     }
     
     // finger on screen
