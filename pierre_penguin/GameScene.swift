@@ -13,7 +13,10 @@ class GameScene: SKScene {
     let cam = SKCameraNode()
     let ground = Ground()
     let player = Player()
+    
     var screenCenterY = CGFloat()
+    let initialPlayerPosition = CGPoint(x: 150, y: 250)
+    var playerProgress = CGFloat()
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -43,7 +46,7 @@ class GameScene: SKScene {
         self.addChild(ground)
         
         // Add player to scene:
-        player.position = CGPoint(x: 150, y: 250)
+        player.position = initialPlayerPosition
         self.addChild(player)
         
         // Set gravity
@@ -59,6 +62,9 @@ class GameScene: SKScene {
         cam.yScale = 1
         cam.xScale = 1
         
+        // Keep track of how far player has flown:
+        playerProgress = player.position.x - initialPlayerPosition.x
+        
         // Follow player up if on upper half of screen:
         if (player.position.y > screenCenterY) {
             cameraYPos = player.position.y
@@ -70,6 +76,9 @@ class GameScene: SKScene {
         }
         // Move camera for above adjustments:
         self.camera!.position = CGPoint(x: player.position.x, y: cameraYPos)
+        
+        // Check if ground should jump forward:
+        ground.checkForReposition(playerProgress: playerProgress)
     }
     
     // finger on screen
