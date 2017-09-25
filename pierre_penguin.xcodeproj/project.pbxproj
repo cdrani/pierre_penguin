@@ -24,6 +24,7 @@
 		1CCD82291F7924C3002BFA89 /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD82281F7924C3002BFA89 /* Bat.swift */; };
 		1CCD822B1F792706002BFA89 /* Blade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD822A1F792706002BFA89 /* Blade.swift */; };
 		1CCD822D1F7929E0002BFA89 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD822C1F7929E0002BFA89 /* Coin.swift */; };
+		1CCD82301F79693E002BFA89 /* EncounterA.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD822F1F79693E002BFA89 /* EncounterA.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1CCD82281F7924C3002BFA89 /* Bat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
 		1CCD822A1F792706002BFA89 /* Blade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blade.swift; sourceTree = "<group>"; };
 		1CCD822C1F7929E0002BFA89 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		1CCD822F1F79693E002BFA89 /* EncounterA.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterA.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		1C7A61FE1F7602F500930B5E /* pierre_penguin */ = {
 			isa = PBXGroup;
 			children = (
+				1CCD822E1F796883002BFA89 /* Encounters */,
 				1C7A62111F7602F500930B5E /* Info.plist */,
 				1C7A62031F7602F500930B5E /* Actions.sks */,
 				1C7A62011F7602F500930B5E /* GameScene.sks */,
@@ -98,6 +101,14 @@
 				1C7A62091F7602F500930B5E /* Main.storyboard */,
 			);
 			path = pierre_penguin;
+			sourceTree = "<group>";
+		};
+		1CCD822E1F796883002BFA89 /* Encounters */ = {
+			isa = PBXGroup;
+			children = (
+				1CCD822F1F79693E002BFA89 /* EncounterA.sks */,
+			);
+			path = Encounters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 				1C7A620B1F7602F500930B5E /* Main.storyboard in Resources */,
 				1C7A62021F7602F500930B5E /* GameScene.sks in Resources */,
 				1C7A620D1F7602F500930B5E /* Assets.xcassets in Resources */,
+				1CCD82301F79693E002BFA89 /* EncounterA.sks in Resources */,
 				1C7A62101F7602F500930B5E /* LaunchScreen.storyboard in Resources */,
 				1C7A62041F7602F500930B5E /* Actions.sks in Resources */,
 			);
