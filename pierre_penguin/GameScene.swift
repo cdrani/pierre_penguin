@@ -18,6 +18,8 @@ class GameScene: SKScene {
     let initialPlayerPosition = CGPoint(x: 150, y: 250)
     var playerProgress = CGFloat()
     
+    let encounterManager = EncounterManager()
+    
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
         self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1.0)
@@ -46,6 +48,9 @@ class GameScene: SKScene {
         
         // Vertical center of the screen:
         screenCenterY = self.size.height / 2
+        
+        // Add encounter nodes as child of GameScene node
+        encounterManager.addEncountersToScene(gameScene: self)
     }
     
     override func didSimulatePhysics() {
