@@ -30,7 +30,7 @@ class HUD: SKNode {
         coinIcon.size = CGSize(width: 26, height: 26)
         coinIcon.position = coinPosition
         // Configure coin text label:
-        coinCountText.fontName = "AvenirNex-HeavyItalic"
+        coinCountText.fontName = "AvenirNext-HeavyItalic"
         let coinTextPosition = CGPoint(
             x: -cameraOrigin.x + 41, y: coinPosition.y
         )

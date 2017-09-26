@@ -139,9 +139,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case PhysicsCategory.ground.rawValue:
             print("hit the ground")
             player.takeDamage()
+            hud.setHealthDisplay(newHealth: player.health)
         case PhysicsCategory.enemy.rawValue:
             print("take damage")
             player.takeDamage()
+            hud.setHealthDisplay(newHealth: player.health)
         case PhysicsCategory.coin.rawValue:
             // Cast otherBody's node as coin:
             if let coin = otherBody.node as? Coin {
@@ -149,6 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 coin.collect()
                 // Add coin value to counter:
                 self.coinsCollected += coin.value
+                hud.setCoinCountDisplay(newCoinCount: self.coinsCollected)
                 print(self.coinsCollected)
             }
             print("collect a coin")
