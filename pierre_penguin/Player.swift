@@ -96,6 +96,40 @@ class Player: SKSpriteNode, GameSprite {
             SKAction.repeatForever(soarAction),
             rotateDownAction
             ])
+        
+        // --- Taking Damage Animation ---
+        let damageStart = SKAction.run {
+            // player should pass through enemies:
+            self.physicsBody?.categoryBitMask = PhysicsCategory.damagedPenguin.rawValue
+        }
+        // Opacity pulse, slow then fast at the end:
+        let slowFade = SKAction.sequence([
+            SKAction.fadeAlpha(to: 0.3, duration: 0.35),
+            SKAction.fadeAlpha(to: 0.7, duration: 0.35)
+            ])
+        
+        let fastFade = SKAction.sequence([
+            SKAction.fadeAlpha(to: 0.3, duration: 0.2),
+            SKAction.fadeAlpha(to: 0.7, duration: 0.2)
+            ])
+        
+        let fadeOutAndIn = SKAction.sequence([
+            SKAction.repeat(slowFade, count: 2),
+            SKAction.repeat(fastFade, count: 5)
+            ])
+        
+        // Return player to normal
+        let damageEnd = SKAction.run {
+            self.physicsBody?.categoryBitMask = PhysicsCategory.penguin.rawValue
+            // turn off damaged flag:
+            self.damaged = false
+        }
+        
+        self.damageAnimation = SKAction.sequence([
+            damageStart,
+            fadeOutAndIn,
+            damageEnd
+            ])
     }
     
     func onTap() {
@@ -160,6 +194,8 @@ class Player: SKSpriteNode, GameSprite {
     
     func takeDamage() {
         if self.invulnerable || self.damaged { return }
+        // player hit:
+        self.damaged = true
         
         // Remove some health:
         self.health -= 1
