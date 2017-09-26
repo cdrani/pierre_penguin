@@ -14,6 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let ground = Ground()
     let player = Player()
     let coin = Coin()
+    let hud = HUD()
     
     var screenCenterY = CGFloat()
     let initialPlayerPosition = CGPoint(x: 150, y: 250)
@@ -64,6 +65,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Be informed of contact events
         self.physicsWorld.contactDelegate = self
+        
+        // Add camera to scene's node tree:
+        self.addChild(self.camera!)
+        // Position camera above game elements:
+        self.camera!.zPosition = 50
+        // Create HUD child nodes
+        hud.createHudNodes(screenSize: self.size)
+        // Add HUD to camera's node tree
+        self.camera!.addChild(hud)
     }
     
     override func didSimulatePhysics() {

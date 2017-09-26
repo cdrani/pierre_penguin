@@ -56,4 +56,30 @@ class HUD: SKNode {
             self.addChild(newHeartNode)
         }
     }
+    
+    func setCoinCountDisplay(newCoinCount:Int) {
+        // Pad leading 0's onto coin count:
+        let formatter = NumberFormatter()
+        let number = NSNumber(value: newCoinCount)
+        formatter.minimumIntegerDigits = 6
+        if let coinStr = formatter.string(from: number) {
+            // Update label w/ new count:
+            coinCountText.text = coinStr
+        }
+    }
+    
+    func setHealthDisplay(newHealth:Int) {
+        // fade SKAction to fade hearts:
+        let fadeAction = SKAction.fadeAlpha(to: 0.2, duration: 0.3)
+        // Update each heart's status:
+        for index in 0 ..< heartNodes.count {
+            if index < newHealth {
+                // This heart should be fully red (opaque):
+                heartNodes[index].alpha = 1
+            } else {
+                // faded:
+                heartNodes[index].run(fadeAction)
+            }
+        }
+    }
 }
