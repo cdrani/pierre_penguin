@@ -28,6 +28,7 @@
 		1CCD82321F796C8C002BFA89 /* EncounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCD82311F796C8C002BFA89 /* EncounterManager.swift */; };
 		1CCD82341F797368002BFA89 /* EncounterB.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD82331F797368002BFA89 /* EncounterB.sks */; };
 		1CCD82361F79737E002BFA89 /* EncounterC.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CCD82351F79737E002BFA89 /* EncounterC.sks */; };
+		1CF8F33A1F7AEBDC00F16783 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F3391F7AEBDC00F16783 /* HUD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		1CCD82311F796C8C002BFA89 /* EncounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterManager.swift; sourceTree = "<group>"; };
 		1CCD82331F797368002BFA89 /* EncounterB.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterB.sks; sourceTree = "<group>"; };
 		1CCD82351F79737E002BFA89 /* EncounterC.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterC.sks; sourceTree = "<group>"; };
+		1CF8F3391F7AEBDC00F16783 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				1C7A620E1F7602F500930B5E /* LaunchScreen.storyboard */,
 				1C7A62091F7602F500930B5E /* Main.storyboard */,
 				1CCD82311F796C8C002BFA89 /* EncounterManager.swift */,
+				1CF8F3391F7AEBDC00F16783 /* HUD.swift */,
 			);
 			path = pierre_penguin;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				1C7A62001F7602F500930B5E /* AppDelegate.swift in Sources */,
 				1CCD822B1F792706002BFA89 /* Blade.swift in Sources */,
 				1CCD82271F7921DC002BFA89 /* MadFly.swift in Sources */,
+				1CF8F33A1F7AEBDC00F16783 /* HUD.swift in Sources */,
 				1CCD82321F796C8C002BFA89 /* EncounterManager.swift in Sources */,
 				1CCD82251F791E13002BFA89 /* Star.swift in Sources */,
 			);
