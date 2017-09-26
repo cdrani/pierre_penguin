@@ -30,6 +30,13 @@ class Bee: SKSpriteNode, GameSprite {
         // Attach a physics body, circle shaped and approx. size of bee
         self.physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
         self.physicsBody?.affectedByGravity = false
+        
+        // Collisons with player
+        self.physicsBody?.categoryBitMask = PhysicsCategory.enemy.rawValue
+        // Remove damagedPenguin physics category from collisions with enemies
+        // Allows change of penguins physics catergory to damagedPenguin value
+        // when damage should be ignored in collisions with enemeies (powerup star)
+        self.physicsBody?.collisionBitMask = ~PhysicsCategory.damagedPenguin.rawValue
     }
     
     func createAnimations() {

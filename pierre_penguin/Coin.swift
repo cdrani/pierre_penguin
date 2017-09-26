@@ -20,6 +20,10 @@ class Coin: SKSpriteNode, GameSprite {
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
         self.physicsBody?.affectedByGravity = false
+        
+        // Monitor for contact events; prevent coin collisions with other objects
+        self.physicsBody?.categoryBitMask = PhysicsCategory.coin.rawValue
+        self.physicsBody?.collisionBitMask = 0
     }
     
     func turnToGold() {

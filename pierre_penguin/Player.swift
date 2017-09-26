@@ -40,6 +40,16 @@ class Player: SKSpriteNode, GameSprite {
         self.physicsBody?.mass = 30
         // Prevent Pierre rotating:
         self.physicsBody?.allowsRotation = false
+        
+        // Penguin physics category --> for collisions
+        self.physicsBody?.categoryBitMask = PhysicsCategory.penguin.rawValue
+        self.physicsBody?.contactTestBitMask =
+            PhysicsCategory.enemy.rawValue |
+            PhysicsCategory.ground.rawValue |
+            PhysicsCategory.powerup.rawValue |
+            PhysicsCategory.coin.rawValue
+        
+        self.physicsBody?.collisionBitMask = PhysicsCategory.ground.rawValue
     }
     
     func createAnimations() {
@@ -64,7 +74,7 @@ class Player: SKSpriteNode, GameSprite {
         flyAnimation = SKAction.group([
             SKAction.repeatForever(flyAction),
             rotateUpAction
-        ])
+            ])
         
         // Create the soaring animation
         let soarFrames:[SKTexture] = [textureAtlas.textureNamed("pierre-flying-1")]
@@ -74,7 +84,7 @@ class Player: SKSpriteNode, GameSprite {
         soarAnimation = SKAction.group([
             SKAction.repeatForever(soarAction),
             rotateDownAction
-        ])
+            ])
     }
     
     func onTap() {

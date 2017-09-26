@@ -21,6 +21,13 @@ class Bat: SKSpriteNode, GameSprite {
         
         createAnimations()
         self.run(flyAnimation)
+        
+        // Collisons with player
+        self.physicsBody?.categoryBitMask = PhysicsCategory.enemy.rawValue
+        // Remove damagedPenguin physics category from collisions with enemies
+        // Allows change of penguins physics catergory to damagedPenguin value
+        // when damage should be ignored in collisions with enemeies (powerup star)
+        self.physicsBody?.collisionBitMask = ~PhysicsCategory.damagedPenguin.rawValue
     }
     
     func createAnimations() {

@@ -25,6 +25,9 @@ class Star: SKSpriteNode, GameSprite {
         // star animation:
         createAnimations()
         self.run(pulseAnimation)
+        
+        // Powerup physics category
+        self.physicsBody?.categoryBitMask = PhysicsCategory.powerup.rawValue
     }
     
     func createAnimations() {

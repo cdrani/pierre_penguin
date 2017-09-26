@@ -22,6 +22,13 @@ class Blade: SKSpriteNode, GameSprite {
         self.physicsBody?.isDynamic = false
         createAnimations()
         self.run(spinAnimation)
+        
+        // Collisons with player
+        self.physicsBody?.categoryBitMask = PhysicsCategory.enemy.rawValue
+        // Remove damagedPenguin physics category from collisions with enemies
+        // Allows change of penguins physics catergory to damagedPenguin value
+        // when damage should be ignored in collisions with enemeies (powerup star)
+        self.physicsBody?.collisionBitMask = ~PhysicsCategory.damagedPenguin.rawValue
     }
     
     func createAnimations() {
