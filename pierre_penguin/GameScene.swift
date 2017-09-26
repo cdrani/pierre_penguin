@@ -134,3 +134,12 @@ class GameScene: SKScene {
         player.update()
     }
 }
+
+enum PhysicsCategory:UInt32 {
+    case penguin = 1
+    case damagedPenguin = 2
+    case ground = 4
+    case enemy = 8
+    case coin = 16
+    case powerup = 32
+}
