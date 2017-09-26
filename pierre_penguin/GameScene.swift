@@ -83,6 +83,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgrounds[0].spawn(parentNode: self, imageName: "background-front", zPosition: -5, movementMultiplier: 0.75)
         backgrounds[1].spawn(parentNode: self, imageName: "background-middle", zPosition: -10, movementMultiplier: 0.5)
         backgrounds[2].spawn(parentNode: self, imageName: "background-back", zPosition: -15, movementMultiplier: 0.2)
+        
+        // Instantiate SKEmitterNode w/ PierrPath design:
+        if let dotEmitter = SKEmitterNode(fileNamed: "PierrePath") {
+            // Position penguin in front of other game objects:
+            player.zPosition = 10
+            // Place particle zPosition behind the penguin:
+            dotEmitter.particleZPosition = -1
+            // move emitter with penguin and emit new dot wherever player is:
+            player.addChild(dotEmitter)
+            // particles should target scene --> thus trail behind as player moves forward:
+            dotEmitter.targetNode = self
+        }
     }
     
     override func didSimulatePhysics() {
