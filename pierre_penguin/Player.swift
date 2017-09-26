@@ -233,6 +233,27 @@ class Player: SKSpriteNode, GameSprite {
         }
     }
     
+    func starPower() {
+        // Remove existing powerup animation when player under powerup
+        self.removeAction(forKey: "starPower")
+        // star powers:
+        self.forwardVelocity = 400
+        self.invulnerable = true
+        
+        // star powerup lasts 8 secs; slight scaling to show powerup in effect:
+        let startSequence = SKAction.sequence([
+            SKAction.scale(to: 1.5, duration: 0.3),
+            SKAction.wait(forDuration: 8),
+            SKAction.scale(to: 1, duration: 1),
+            SKAction.run {
+                self.forwardVelocity = 200
+                self.invulnerable = false
+            }
+            ])
+        
+        self.run(startSequence, withKey: "starPower")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
