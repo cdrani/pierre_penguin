@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     let cam = SKCameraNode()
     let ground = Ground()
     let player = Player()
@@ -58,6 +58,9 @@ class GameScene: SKScene {
         // PowerUp Star
         self.addChild(powerUpStar)
         powerUpStar.position = CGPoint(x: -2000, y: -2000)
+        
+        // Be informed of contact events
+        self.physicsWorld.contactDelegate = self
     }
     
     override func didSimulatePhysics() {
@@ -101,6 +104,35 @@ class GameScene: SKScene {
                     powerUpStar.physicsBody?.angularVelocity = 0
                 }
             }
+        }
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        // Each contact has two bodies
+        // Find the penguin body first, then use other body to det. type of contact
+        let otherBody:SKPhysicsBody
+        // Combine the two penguin physics categories into one bitmask
+        let penguinMask = PhysicsCategory.penguin.rawValue | PhysicsCategory.damagedPenguin.rawValue
+        // Use bitwise AND (&) to find penguin which return
+        if (contact.bodyA.categoryBitMask & penguinMask) > 0 {
+            // bodyA is the penguin, now test bodyB's type:
+            otherBody = contact.bodyB
+        } else {
+            otherBody = contact.bodyA
+        }
+        
+        // Find type of contact:
+        switch otherBody.categoryBitMask {
+        case PhysicsCategory.ground.rawValue:
+            print("hit the ground")
+        case PhysicsCategory.enemy.rawValue:
+            print("take damage")
+        case PhysicsCategory.coin.rawValue:
+            print("collect a coin")
+        case PhysicsCategory.powerup.rawValue:
+            print("start the power-up")
+        default:
+            print("contact with no game logic")
         }
     }
     
