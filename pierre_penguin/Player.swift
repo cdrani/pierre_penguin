@@ -145,6 +145,7 @@ class Player: SKSpriteNode, GameSprite {
         }
         
         self.dieAnimation = SKAction.sequence([
+            startDie,
             // Enlarge penguin:
             SKAction.scale(to: 1.3, duration: 0.5),
             // short pause

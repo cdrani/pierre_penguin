@@ -31,6 +31,33 @@ class Coin: SKSpriteNode, GameSprite {
         self.value = 5
     }
     
+    func collect() {
+        // Prevent further contact:
+        self.physicsBody?.categoryBitMask = 0
+        // Fade out, move up, and scale up the coin:
+        let collectAnimation = SKAction.group([
+            SKAction.fadeAlpha(to: 0, duration: 0.2),
+            SKAction.scale(to: 1.5, duration: 0.2),
+            SKAction.move(by: CGVector(dx: 0, dy: 25), duration: 0.2)
+            ])
+        
+        // Move coin out of the way; reset it to init. values for next encounter:
+        let resetAfterCollected = SKAction.run {
+            self.position.y = 5000
+            self.alpha = 1
+            self.xScale = 1
+            self.yScale = 1
+            self.physicsBody?.categoryBitMask = PhysicsCategory.coin.rawValue
+        }
+        
+        let collectSequence = SKAction.sequence([
+            collectAnimation,
+            resetAfterCollected
+            ])
+        
+        self.run(collectSequence)
+    }
+    
     func onTap() {
         
     }

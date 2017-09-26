@@ -13,6 +13,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let cam = SKCameraNode()
     let ground = Ground()
     let player = Player()
+    let coin = Coin()
     
     var screenCenterY = CGFloat()
     let initialPlayerPosition = CGPoint(x: 150, y: 250)
@@ -22,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var nextEncounterSpawnPosition = CGFloat(150)
     
     let powerUpStar = Star()
+    
+    var coinsCollected = 0
     
     override func didMove(to view: SKView) {
         self.anchorPoint = .zero
@@ -130,6 +133,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("take damage")
             player.takeDamage()
         case PhysicsCategory.coin.rawValue:
+            // Cast otherBody's node as coin:
+            if let coin = otherBody.node as? Coin {
+                // Start animatioin
+                coin.collect()
+                // Add coin value to counter:
+                self.coinsCollected += coin.value
+                print(self.coinsCollected)
+            }
             print("collect a coin")
         case PhysicsCategory.powerup.rawValue:
             print("start the power-up")
