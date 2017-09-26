@@ -24,6 +24,17 @@ class Player: SKSpriteNode, GameSprite {
     var flyAnimation = SKAction()
     var soarAnimation = SKAction()
     
+    // Player health properties
+    var health:Int = 3
+    // Only invulnerable with powerup star
+    var invulnerable = false
+    var damaged = false
+    // Animations for when player takes damage or dies
+    var damageAnimation = SKAction()
+    var dieAnimation = SKAction()
+    // Stop forward velocity when player dies
+    var forwardVelocity:CGFloat = 200
+    
     init() {
         super.init(texture: nil, color: .clear, size: initialSize)
         
@@ -115,19 +126,50 @@ class Player: SKSpriteNode, GameSprite {
         }
         
         // Set a constant velocity to the right:
-        self.physicsBody?.velocity.dx = 200
+        self.physicsBody?.velocity.dx = self.forwardVelocity
     }
     
     func startFlapping() {
+        // Prevent flying if dead
+        if self.health <= 0 { return }
+        
         self.removeAction(forKey: "soarAnimation")
         self.run(flyAnimation, withKey: "flapAnimation")
         self.flapping = true
     }
     
     func stopFlapping() {
+        // Prevent flying if dead
+        if self.health <= 0 { return }
+        
         self.removeAction(forKey: "flapAnimation")
         self.run(soarAnimation, withKey: "soarAnimation")
         self.flapping = false
+    }
+    
+    func die() {
+        // Player should be visible:
+        self.alpha = 1
+        // Remove all animations:
+        self.removeAllActions()
+        // Run die aniation:
+        self.run(dieAnimation)
+        // Stop moving forward:
+        self.forwardVelocity = 0
+    }
+    
+    func takeDamage() {
+        if self.invulnerable || self.damaged { return }
+        
+        // Remove some health:
+        self.health -= 1
+        if self.health == 0 {
+            // Out of health
+            die()
+        } else {
+            // Damage animation:
+            self.run(damageAnimation)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -125,8 +125,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch otherBody.categoryBitMask {
         case PhysicsCategory.ground.rawValue:
             print("hit the ground")
+            player.takeDamage()
         case PhysicsCategory.enemy.rawValue:
             print("take damage")
+            player.takeDamage()
         case PhysicsCategory.coin.rawValue:
             print("collect a coin")
         case PhysicsCategory.powerup.rawValue:
