@@ -130,6 +130,30 @@ class Player: SKSpriteNode, GameSprite {
             fadeOutAndIn,
             damageEnd
             ])
+        
+        // --- Death Animation ---
+        let startDie = SKAction.run {
+            // Death texture:
+            self.texture = self.textureAtlas.textureNamed("pierre-dead")
+            // Suspend player in space and stop any movement:
+            self.physicsBody?.affectedByGravity = false
+            self.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        }
+        
+        let endDie = SKAction.run {
+            self.physicsBody?.affectedByGravity = true
+        }
+        
+        self.dieAnimation = SKAction.sequence([
+            // Enlarge penguin:
+            SKAction.scale(to: 1.3, duration: 0.5),
+            // short pause
+            SKAction.wait(forDuration: 0.5),
+            // rotate player on back
+            SKAction.rotate(byAngle: 3, duration: 1.5),
+            SKAction.wait(forDuration: 0.5),
+            endDie
+            ])
     }
     
     func onTap() {
