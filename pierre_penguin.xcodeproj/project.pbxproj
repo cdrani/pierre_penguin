@@ -31,6 +31,7 @@
 		1CF8F33A1F7AEBDC00F16783 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F3391F7AEBDC00F16783 /* HUD.swift */; };
 		1CF8F33C1F7AFAFE00F16783 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F33B1F7AFAFE00F16783 /* Background.swift */; };
 		1CF8F33E1F7B04D300F16783 /* PierrePath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1CF8F33D1F7B04D300F16783 /* PierrePath.sks */; };
+		1CF8F3401F7B293F00F16783 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8F33F1F7B293F00F16783 /* MenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		1CF8F3391F7AEBDC00F16783 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		1CF8F33B1F7AFAFE00F16783 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		1CF8F33D1F7B04D300F16783 /* PierrePath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PierrePath.sks; sourceTree = "<group>"; };
+		1CF8F33F1F7B293F00F16783 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				1CCD822E1F796883002BFA89 /* Encounters */,
 				1C7A620E1F7602F500930B5E /* LaunchScreen.storyboard */,
 				1C7A62091F7602F500930B5E /* Main.storyboard */,
+				1CF8F33F1F7B293F00F16783 /* MenuScene.swift */,
 			);
 			path = pierre_penguin;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				1CCD82271F7921DC002BFA89 /* MadFly.swift in Sources */,
 				1CF8F33A1F7AEBDC00F16783 /* HUD.swift in Sources */,
 				1CCD82321F796C8C002BFA89 /* EncounterManager.swift in Sources */,
+				1CF8F3401F7B293F00F16783 /* MenuScene.swift in Sources */,
 				1CCD82251F791E13002BFA89 /* Star.swift in Sources */,
 				1CF8F33C1F7AFAFE00F16783 /* Background.swift in Sources */,
 			);
