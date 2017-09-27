@@ -60,4 +60,18 @@ class MenuScene:SKScene {
             ])
         startText.run(SKAction.repeatForever(pulseAction))
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in (touches) {
+            // Find location of touch:
+            let location = touch.location(in: self)
+            // Locate node at this location
+            let nodeTouched = atPoint(location)
+            if nodeTouched.name == "StartBtn" {
+                // start text or button touched
+                // Switch to instance of game scene:
+                self.view?.presentScene(GameScene(size: self.size))
+            }
+        }
+    }
 }
