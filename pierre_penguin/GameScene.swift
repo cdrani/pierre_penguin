@@ -248,4 +248,5 @@ enum PhysicsCategory:UInt32 {
     case enemy = 8
     case coin = 16
     case powerup = 32
+    case crate = 64
 }

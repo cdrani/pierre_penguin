@@ -62,7 +62,8 @@ class Player: SKSpriteNode, GameSprite {
             PhysicsCategory.enemy.rawValue |
             PhysicsCategory.ground.rawValue |
             PhysicsCategory.powerup.rawValue |
-            PhysicsCategory.coin.rawValue
+            PhysicsCategory.coin.rawValue |
+            PhysicsCategory.crate.rawValue
         
         self.physicsBody?.collisionBitMask = PhysicsCategory.ground.rawValue
         
