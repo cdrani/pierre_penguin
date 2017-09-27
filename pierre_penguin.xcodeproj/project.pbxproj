@@ -12,6 +12,8 @@
 		1C1742C51F77ACE800D681A4 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1742C41F77ACE800D681A4 /* Ground.swift */; };
 		1C1742C71F77B3D600D681A4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1742C61F77B3D600D681A4 /* Player.swift */; };
 		1C6CB0DD1F7C5B8F008D5CEA /* Crate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6CB0DC1F7C5B8F008D5CEA /* Crate.swift */; };
+		1C6CB0DF1F7C6347008D5CEA /* HeartExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C6CB0DE1F7C6347008D5CEA /* HeartExplosion.sks */; };
+		1C6CB0E11F7C6444008D5CEA /* CrateExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C6CB0E01F7C6444008D5CEA /* CrateExplosion.sks */; };
 		1C7A62001F7602F500930B5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7A61FF1F7602F500930B5E /* AppDelegate.swift */; };
 		1C7A62021F7602F500930B5E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A62011F7602F500930B5E /* GameScene.sks */; };
 		1C7A62041F7602F500930B5E /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C7A62031F7602F500930B5E /* Actions.sks */; };
@@ -41,6 +43,8 @@
 		1C1742C41F77ACE800D681A4 /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		1C1742C61F77B3D600D681A4 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		1C6CB0DC1F7C5B8F008D5CEA /* Crate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crate.swift; sourceTree = "<group>"; };
+		1C6CB0DE1F7C6347008D5CEA /* HeartExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HeartExplosion.sks; sourceTree = "<group>"; };
+		1C6CB0E01F7C6444008D5CEA /* CrateExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CrateExplosion.sks; sourceTree = "<group>"; };
 		1C7A61FC1F7602F500930B5E /* pierre_penguin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pierre_penguin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7A61FF1F7602F500930B5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C7A62011F7602F500930B5E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				1C7A62091F7602F500930B5E /* Main.storyboard */,
 				1CF8F33F1F7B293F00F16783 /* MenuScene.swift */,
 				1C6CB0DC1F7C5B8F008D5CEA /* Crate.swift */,
+				1C6CB0DE1F7C6347008D5CEA /* HeartExplosion.sks */,
+				1C6CB0E01F7C6444008D5CEA /* CrateExplosion.sks */,
 			);
 			path = pierre_penguin;
 			sourceTree = "<group>";
@@ -196,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C6CB0DF1F7C6347008D5CEA /* HeartExplosion.sks in Resources */,
 				1CCD82341F797368002BFA89 /* EncounterB.sks in Resources */,
 				1C7A620B1F7602F500930B5E /* Main.storyboard in Resources */,
 				1C7A62021F7602F500930B5E /* GameScene.sks in Resources */,
@@ -203,6 +210,7 @@
 				1C7A620D1F7602F500930B5E /* Assets.xcassets in Resources */,
 				1CCD82301F79693E002BFA89 /* EncounterA.sks in Resources */,
 				1CF8F33E1F7B04D300F16783 /* PierrePath.sks in Resources */,
+				1C6CB0E11F7C6444008D5CEA /* CrateExplosion.sks in Resources */,
 				1C7A62101F7602F500930B5E /* LaunchScreen.storyboard in Resources */,
 				1C7A62041F7602F500930B5E /* Actions.sks in Resources */,
 			);
