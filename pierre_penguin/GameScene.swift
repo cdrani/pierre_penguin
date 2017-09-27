@@ -95,6 +95,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // particles should target scene --> thus trail behind as player moves forward:
             dotEmitter.targetNode = self
         }
+        
+        // Play start sound:
+        self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false))
     }
     
     override func didSimulatePhysics() {

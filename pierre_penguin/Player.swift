@@ -35,6 +35,10 @@ class Player: SKSpriteNode, GameSprite {
     // Stop forward velocity when player dies
     var forwardVelocity:CGFloat = 200
     
+    // Sounds
+    let powerupSound = SKAction.playSoundFileNamed("Sound/Powerup.aif", waitForCompletion: false)
+    let hurtSound = SKAction.playSoundFileNamed("Sound/Hurt.aif", waitForCompletion: false)
+    
     init() {
         super.init(texture: nil, color: .clear, size: initialSize)
         
@@ -249,6 +253,9 @@ class Player: SKSpriteNode, GameSprite {
             // Damage animation:
             self.run(damageAnimation)
         }
+        
+        // Play hurt sound:
+        self.run(hurtSound)
     }
     
     func starPower() {
@@ -270,6 +277,9 @@ class Player: SKSpriteNode, GameSprite {
             ])
         
         self.run(startSequence, withKey: "starPower")
+        
+        //Play powerup sound:
+        self.run(hurtSound)
     }
     
     required init?(coder aDecoder: NSCoder) {
