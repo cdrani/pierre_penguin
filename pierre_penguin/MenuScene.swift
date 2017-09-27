@@ -33,5 +33,31 @@ class MenuScene:SKScene {
         logoTextBottom.position = CGPoint(x: 0, y: 50)
         logoTextBottom.fontSize = 40
         self.addChild(logoTextBottom)
+        
+        // Build start game button:
+        startButton.texture = textureAtlas.textureNamed("button")
+        startButton.size = CGSize(width: 295, height: 76)
+        // Name the start node for touch detection:
+        startButton.name = "StartBtn"
+        startButton.position = CGPoint(x: 0, y: -20)
+        self.addChild(startButton)
+        
+        // Add text to the start button:
+        let startText = SKLabelNode(fontNamed: "AvenirNext-HeavyItalic")
+        startText.text = "START GAME"
+        startText.verticalAlignmentMode = .center
+        startText.position = CGPoint(x: 0, y: 2)
+        startText.fontSize = 40
+        // Name the text node for touch detection:
+        startText.name = "StartBtn"
+        startText.zPosition = 5
+        startButton.addChild(startText)
+        
+        // Pulse start text in and out:
+        let pulseAction = SKAction.sequence([
+            SKAction.fadeAlpha(to: 0.5, duration: 0.9),
+            SKAction.fadeAlpha(to: 1, duration: 0.9)
+            ])
+        startText.run(SKAction.repeatForever(pulseAction))
     }
 }
