@@ -228,6 +228,11 @@ class Player: SKSpriteNode, GameSprite {
         self.run(dieAnimation)
         // Stop moving forward:
         self.forwardVelocity = 0
+        
+        // Alert GameScene of player death:
+        if let gameScene = self.parent as? GameScene {
+            gameScene.gameOver()
+        }
     }
     
     func takeDamage() {

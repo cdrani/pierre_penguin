@@ -189,6 +189,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func gameOver() {
+        // Show restart and main menu buttons
+        hud.showButtons()
+    }
+    
     // finger on screen
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
