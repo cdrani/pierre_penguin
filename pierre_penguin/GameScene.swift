@@ -208,7 +208,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             // Check for HUD buttons (restart and menu):
-            if nodeTouched.name == "restartButton" {
+            if nodeTouched.name == "restartGame" {
                 // Transition to new version of GameScene to restart game:
                 self.view?.presentScene(
                     GameScene(size: self.size), transition: .crossFade(withDuration: 0.6)
