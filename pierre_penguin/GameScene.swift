@@ -206,6 +206,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // if node adhered to protocol
                 gameSprite.onTap()
             }
+            
+            // Check for HUD buttons (restart and menu):
+            if nodeTouched.name == "restartButton" {
+                // Transition to new version of GameScene to restart game:
+                self.view?.presentScene(
+                    GameScene(size: self.size), transition: .crossFade(withDuration: 0.6)
+                )
+            } else if nodeTouched.name == "returnToMenu" {
+                // Transition to main menus scene:
+                self.view?.presentScene(
+                    MenuScene(size: self.size), transition: .crossFade(withDuration: 0.6)
+                )
+            }
         }
         player.startFlapping()
     }
