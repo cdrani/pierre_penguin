@@ -16,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let coin = Coin()
     let powerUpStar = Star()
     let hud = HUD()
+    let particlePool = ParticlePool()
     
     var screenCenterY = CGFloat()
     let initialPlayerPosition = CGPoint(x: 150, y: 250)
@@ -98,6 +99,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Play start sound:
         self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false))
+        
+        // Add emitter nodes to GameScene node tree:
+        particlePool.addEmittersToScene(scene: self)
     }
     
     override func didSimulatePhysics() {
