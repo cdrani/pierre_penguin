@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let powerUpStar = Star()
     let hud = HUD()
     let particlePool = ParticlePool()
+    let heartCrate = Crate()
     
     var screenCenterY = CGFloat()
     let initialPlayerPosition = CGPoint(x: 150, y: 250)
@@ -102,6 +103,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Add emitter nodes to GameScene node tree:
         particlePool.addEmittersToScene(scene: self)
+        
+        // Spawn health crate
+        self.addChild(heartCrate)
+        heartCrate.position = CGPoint(x: -2000, y: -2000)
+        heartCrate.turnToHeartCrate()
     }
     
     override func didSimulatePhysics() {
@@ -144,6 +150,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     powerUpStar.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
                     powerUpStar.physicsBody?.angularVelocity = 0
                 }
+            }
+            
+            if starRoll == 1 {
+                heartCrate.reset()
+                heartCrate.position = CGPoint(x: nextEncounterSpawnPosition - 600, y: 270)
             }
         }
         
