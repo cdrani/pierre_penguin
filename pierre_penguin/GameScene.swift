@@ -191,6 +191,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case PhysicsCategory.powerup.rawValue:
             print("start the power-up")
             player.starPower()
+        case PhysicsCategory.crate.rawValue:
+            if let crate = otherBody.node as? Crate {
+                crate.explode(gameScene: self)
+            }
         default:
             print("contact with no game logic")
         }

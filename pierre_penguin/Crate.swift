@@ -37,10 +37,29 @@ class Crate: SKSpriteNode, GameSprite {
     }
     
     // exploding crate
-    func explode() {
+    func explode(gameScene:GameScene) {
         // exit if exploded already:
         if exploded { return }
         exploded = true
+        //Place crate explosion at this location:
+        gameScene.particlePool.placeEmitter(node: self, emitterType: "crate")
+        // Fade out crate sprit
+        self.run(SKAction.fadeAlpha(to: 0, duration: 0.1))
+        
+        if (givesHeart) {
+            // award health:
+            let newHealth = gameScene.player.health + 1
+            let maxHealth = gameScene.player.maxHealth
+            gameScene.player.health = newHealth > maxHealth ?
+                maxHealth : newHealth
+            
+            // Place heart explostion here:
+            gameScene.particlePool.placeEmitter(node: self, emitterType: "heart")
+        } else {
+            // coin reward
+            gameScene.coinsCollected += 1
+            gameScene.hud.setCoinCountDisplay(newCoinCount: gameScene.coinsCollected)
+        }
         
         // prevent additional contact:
         self.physicsBody?.categoryBitMask = 0

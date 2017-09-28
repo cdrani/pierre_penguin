@@ -26,6 +26,7 @@ class Player: SKSpriteNode, GameSprite {
     
     // Player health properties
     var health:Int = 3
+    let maxHealth = 3
     // Only invulnerable with powerup star
     var invulnerable = false
     var damaged = false
